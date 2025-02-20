@@ -1,0 +1,32 @@
+#footer {
+    padding: 20px;
+    background-color: var(--color-primaryDark);
+
+    h2,
+    h3,
+    h4,
+    a,
+    p {
+        color: var(--color-white);
+    }
+
+    a:hover,
+    .footer__copy>a:hover {
+        color: var(--color-primary);
+    }
+
+    .footer__copy {
+        width: 100%;
+    }
+
+    .footer__copy,
+    .footer__copy>a {
+        color: var(--color-white);
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        margin-left: 0.25em;
+    }
+}
