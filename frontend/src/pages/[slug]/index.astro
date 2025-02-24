@@ -138,10 +138,9 @@ const dataCompany: Company = await getDataCompany();
               data={dataPage.amenities.portableText}
               client:only="react"
             />
-            <ul class="listado__x4" role="list">
+            <ul class="listado__x5" role="list">
               {dataPage.amenities.list.map((amenity) => (
                 <li>
-                  <p>{amenity.name}</p>
                   <Picture
                     class="img"
                     src={amenity.img.media.url}
@@ -152,6 +151,7 @@ const dataCompany: Company = await getDataCompany();
                     quality={"high"}
                     densities={[1.5, 2]}
                   />
+                  <p>{amenity.name}</p>
                 </li>
               ))}
             </ul>
@@ -202,7 +202,7 @@ const dataCompany: Company = await getDataCompany();
               id="splide-testy"
               class="splide"
               role="group"
-              aria-label="Splide Basic HTML Example"
+              aria-label="Slider Testimonial"
             >
               <div class="splide__track">
                 <ul class="splide__list">
@@ -246,7 +246,7 @@ const dataCompany: Company = await getDataCompany();
                 alt: img.alt.altText,
               }))}
             >
-              <ul class="listado__x4" role="list">
+              <ul class="listado__x6" role="list">
                 {dataPage.gallery.list.map((img) => (
                   <li>
                     <Picture
@@ -287,11 +287,11 @@ const dataCompany: Company = await getDataCompany();
     style.textContent = `
             :root {
               --color-primary: ${primary.hex};
-              --color-primaryLight: ${primaryLight.hex};
-              --color-primaryDark: ${primaryDark.hex};
+              --color-primary-light: ${primaryLight.hex};
+              --color-primary-dark: ${primaryDark.hex};
               --color-secondary: ${secondary.hex};
-              --color-secondaryLight: ${secondaryLight.hex};
-              --color-secondaryDark: ${secondaryDark.hex};
+              --color-secondary-light: ${secondaryLight.hex};
+              --color-secondary-dark: ${secondaryDark.hex};
               --color-accent: ${accent.hex};
             }
           `;

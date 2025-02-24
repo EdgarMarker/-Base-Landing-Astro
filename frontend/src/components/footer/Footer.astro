@@ -17,39 +17,53 @@ const dataCompany: Company = await getDataCompany();
   </div>
   <div class="column__2">
     <div class="col__left">
-      <p><strong>Contacto:</strong></p>
-      <a href={`tel: ${dataCompany.contact.tel}`}>{dataCompany.contact.tel}</a>
-      <a href={`mailto: ${dataCompany.contact.email}`}
-        >{dataCompany.contact.email}</a
-      >
-      <a href="{dataCompany.contact.dirLink}">{dataCompany.contact.dir}</a>
-      <p><strong>Sociales:</strong></p>
-      {
-        dataCompany.contact.social.map(
-          (social: { url: string | URL | null | undefined; name: unknown }) => (
-            <a href={social.url}>{social.name}</a>
+      <div class="bloque__contacto">
+        <h3>Teléfono:</h3>
+       <a href={`tel: ${dataCompany.contact.tel}`}>{dataCompany.contact.tel}</a>
+      </div>
+      <div class="bloque__contacto">
+        <h3>Correo electrónico:</h3>
+        <a href={`mailto: ${dataCompany.contact.email}`}>{dataCompany.contact.email}</a>
+      </div>
+      <div class="bloque__contacto">
+        <h3>Oficinas:</h3>
+        <a href="{dataCompany.contact.dirLink}">{dataCompany.contact.dir}</a>
+      </div>
+      <div class="bloque__contacto">
+        <h3>Síguenos en:</h3>
+        {
+          dataCompany.contact.social.map(
+            (social: { url: string | URL | null | undefined; name: unknown }) => (
+              <a href={social.url}>{social.name}</a>
+            )
           )
-        )
-      }
-      <a href="/">
-        <Picture
-          class="img"
-          src={dataCompany.contact.img.media.url}
-          alt={dataCompany.contact.img.alt.altText}
-          formats={["webp", "avif", "svg"]}
-          fallbackFormat="svg"
-          inferSize={true}
-          quality={"high"}
-          densities={[1.5, 2]}
-        />
-      </a>
-      <a href={`/aviso-de-privacidad`}>Aviso de Privacidad</a>
+        }
+      </div>
+      <div class="bloque__contacto">
+        <a href={`/aviso-de-privacidad`}>Aviso de Privacidad</a>
+      </div>
+      <div class="bloque__contacto">
+        <a href="/">
+          <Picture
+            class="img"
+            src={dataCompany.contact.img.media.url}
+            alt={dataCompany.contact.img.alt.altText}
+            formats={["webp", "avif", "svg"]}
+            fallbackFormat="svg"
+            inferSize={true}
+            quality={"high"}
+            densities={[1.5, 2]}
+          />
+        </a>
+      </div>
     </div>
-    <div class="col__right"></div>
+    <div class="col__right">
+       {/* Añadir valor del campo en sanity para el script de hubspot */}
+    </div>
   </div>
   <span class="footer__copy">
-    ©{dataCompany.name} - Todos los derechos reservados | web creada por <a
-      href="https://marker.com.mx/">Marker branding</a
+    © {dataCompany.name} - Todos los derechos reservados | Sitio web creado por <a
+      href="https://marker.com.mx/" target="_blank">Marker branding</a
     >
   </span>
 </footer>

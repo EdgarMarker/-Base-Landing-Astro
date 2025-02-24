@@ -17,7 +17,7 @@ const LightBox = ({ images }: Props) => {
 
   return (
     <>
-      <ul className="listado__x4" role="list">
+      <ul className="listado__x6" role="list">
         {images.map((img, index) => (
           <li key={index} onClick={() => handleOpen(index)}>
             <img src={img.src} alt={img.alt} className="img" />

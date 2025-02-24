@@ -10,9 +10,9 @@
     --color-warning: #ffee00;
 
     /* Text sizes */
-    --size-xs: 0.7vw;
-    --size-sm: 0.8vw;
-    --size-md: 1.1vw;
+    --size-xs: 0.8vw;
+    --size-sm: 1vw;
+    --size-md: 1.2vw;
     --size-lg: 1.6vw;
     --size-xl: 2vw;
     --size-2xl: 3vw;
@@ -26,33 +26,78 @@
 /* Actualizar solo URL de las fuentes según convenga (convertir a formato woff) */
 
 /* Primary Font */
+
 @font-face {
     font-family: primary;
     font-style: normal;
-    font-weight: 200;
-    src: url(../assets/fonts/vagrounded_thin.woff);
+    font-weight: 400;
+    src: url(/fonts/playfair_display_regular.woff);
 }
 
 @font-face {
     font-family: primary;
-    font-style: light;
-    font-weight: 300;
-    src: url(../assets/fonts/vagrounded_light.woff);
+    font-style: italic;
+    font-weight: 400;
+    src: url(/fonts/playfair_display_italic.woff);
+}
+
+@font-face {
+    font-family: primary;
+    font-style: normal;
+    font-weight: 500;
+    src: url(/fonts/playfair_display_medium.woff);
+}
+
+@font-face {
+    font-family: primary;
+    font-style: italic;
+    font-weight: 500;
+    src: url(/fonts/playfair_display_medium_italic.woff);
 }
 
 @font-face {
     font-family: primary;
     font-style: normal;
     font-weight: 600;
-    src: url(../assets/fonts/vagrounded_bold.woff);
+    src: url(/fonts/playfair_display_bold.woff);
+}
+
+@font-face {
+    font-family: primary;
+    font-style: italic;
+    font-weight: 600;
+    src: url(/fonts/playfair_display_bold_italic.woff);
 }
 
 @font-face {
     font-family: primary;
     font-style: normal;
     font-weight: 700;
-    src: url(../assets/fonts/vagrounded_black.woff);
+    src: url(/fonts/playfair_display_extra_bold.woff);
 }
+
+@font-face {
+    font-family: primary;
+    font-style: italic;
+    font-weight: 700;
+    src: url(/fonts/playfair_display_extra_bold_italic.woff);
+}
+
+@font-face {
+    font-family: primary;
+    font-style: normal;
+    font-weight: 800;
+    src: url(/fonts/playfair_display_black.woff);
+}
+
+@font-face {
+    font-family: primary;
+    font-style: italic;
+    font-weight: 800;
+    src: url(/fonts/playfair_display_black_italic.woff);
+}
+
+
 
 
 
@@ -60,49 +105,56 @@
     font-family: secondary;
     font-style: normal;
     font-weight: 200;
-    src: url(../assets/fonts/onest_thin.woff);
+    src: url(/fonts/onest_thin.woff);
+}
+
+@font-face {
+    font-family: secondary;
+    font-style: normal;
+    font-weight: 250;
+    src: url(/fonts/onest_extra_light.woff);
 }
 
 @font-face {
     font-family: secondary;
     font-style: normal;
     font-weight: 300;
-    src: url(../assets/fonts/onest_light.woff);
+    src: url(/fonts/onest_light.woff);
 }
 
 @font-face {
     font-family: secondary;
     font-style: normal;
     font-weight: 400;
-    src: url(../assets/fonts/onest_regular.woff);
+    src: url(/fonts/onest_regular.woff);
 }
 
 @font-face {
     font-family: secondary;
     font-style: normal;
     font-weight: 500;
-    src: url(../assets/fonts/onest_semi_bold.woff);
+    src: url(/fonts/onest_semi_bold.woff);
 }
 
 @font-face {
     font-family: secondary;
     font-style: normal;
     font-weight: 600;
-    src: url(../assets/fonts/onest_bold.woff);
+    src: url(/fonts/onest_bold.woff);
 }
 
 @font-face {
     font-family: secondary;
     font-style: normal;
     font-weight: 700;
-    src: url(../assets/fonts/onest_extra_bold.woff);
+    src: url(/fonts/onest_extra_bold.woff);
 }
 
 @font-face {
     font-family: secondary;
     font-style: normal;
     font-weight: 800;
-    src: url(../assets/fonts/onest_black.woff);
+    src: url(/fonts/onest_black.ttf);
 }
 
 
@@ -141,39 +193,9 @@ figure {
     object-position: center center;
 }
 
-a {
-    display: block;
-    text-decoration: none;
-    color: inherit;
-    font-size: inherit;
-}
-
-p a {
-    display: inline;
-}
 
 
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-span,
-a,
-blockquote,
-i,
-b,
-u,
-em {
-    font-size: inherit;
-    font-weight: inherit;
-    font-style: inherit;
-    text-decoration: none;
-    display: inline-block;
-}
 
 strong {
     font-weight: 600;
@@ -250,7 +272,7 @@ body {
     :root {
         /* Text sizes */
         --size-xs: 14px;
-        --size-sm: 15px;
+        --size-sm: 16px;
         --size-md: 18px;
         --size-lg: 24px;
         --size-xl: 30px;
@@ -270,8 +292,8 @@ body {
     :root {
         /* Text sizes */
         --size-xs: 14px;
-        --size-sm: 14px;
-        --size-md: 16px;
+        --size-sm: 15px;
+        --size-md: 17px;
         --size-lg: 20px;
         --size-xl: 26px;
         --size-2xl: 32px;
