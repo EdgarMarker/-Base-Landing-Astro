@@ -13,6 +13,7 @@ import Footer from "../../components/footer/Footer.astro";
 import type { Company } from "../../_types/company";
 import { getDataCompany } from "../../_data/company";
 import TabsModels from "../../components/ui/tabsModels/TabsModels.astro";
+import ScrollTo from "../../components/ui/btn/ScrollTo";
 
 export const getStaticPaths = async () => {
   const dataPage = await getDataPage();
@@ -40,7 +41,11 @@ const dataCompany: Company = await getDataCompany();
             <did class="col__left">
               <h1>{dataPage.hero.h1}</h1>
               <PortableTextCustom data={dataPage.hero.portableText} />
-              <div class="btn">{dataPage.hero.btn}</div>
+              <ScrollTo
+                btnText={`${dataPage.hero.btn}`}
+                classToScroll="intro"
+                client:only="react"
+              />
             </did>
             <did class="col__right">
               <Picture
@@ -112,7 +117,13 @@ const dataCompany: Company = await getDataCompany();
                 data={dataPage.location.portableText}
                 client:only="react"
               />
-              <div class="btn">{dataPage.location.btn}</div>
+              <a
+                href={`${dataPage.location.btnLink}`}
+                class="btn"
+                target="_blank"
+              >
+                {dataPage.location.btn}
+              </a>
             </div>
             <div class="col__right">
               <Picture
@@ -125,6 +136,18 @@ const dataCompany: Company = await getDataCompany();
                 quality={"high"}
                 densities={[1.5, 2]}
               />
+              <a href={`${dataPage.location.btnLink}`} target="_blank">
+                <Picture
+                  class="location__pin"
+                  src={dataPage.location.imgPin.media.url}
+                  alt={dataPage.location.imgPin.alt.altText}
+                  formats={["webp", "avif"]}
+                  fallbackFormat="jpeg"
+                  inferSize={true}
+                  quality={"high"}
+                  densities={[1.5, 2]}
+                />
+              </a>
             </div>
           </div>
         </section>
@@ -267,7 +290,7 @@ const dataCompany: Company = await getDataCompany();
         </section>
       )
     }
-    <Footer />
+    <Footer script={dataPage.form.script} />
   </ScrollSmootherProvider>
 </Layout>
 <script src="../../scripts/mountSplide.js"></script>

@@ -5,6 +5,9 @@ import ScrollTo from "../ui/btn/ScrollTo";
 import { Picture } from "astro:assets";
 import { getDataCompany } from "../../_data/company";
 import type { Company } from "../../_types/company";
+import WhatsAppBtn from "../ui/btn/WhatsAppBtn";
+import CloseNav from "../ui/btn/CloseNav";
+import OpenNav from "../ui/btn/OpenNav";
 
 interface NavItems {
   name: string;
@@ -28,11 +31,11 @@ const sortedNavItems = navItems.sort((a, b) => a.id - b.id);
 ---
 
 <header>
-  <nav>
-    <a class="logo" href=`/${dataPage.slug.current}`>
+  <nav class="desktop">
+    <a class="logo" href=`/`>
       <Picture
-        src={dataCompany.contact.imgNav.media.url}
-        alt={dataCompany.contact.imgNav.alt.altText}
+        src={dataCompany.imgNav.media.url}
+        alt={dataCompany.imgNav.alt.altText}
         formats={["svg", "png"]}
         fallbackFormat="svg"
         inferSize={true}
@@ -56,6 +59,73 @@ const sortedNavItems = navItems.sort((a, b) => a.id - b.id);
             )
         )
       }
+      <li>
+        <ScrollTo
+          className="btn__nav"
+          btnText="Contact"
+          classToScroll="footer"
+          client:only="react"
+        />
+      </li>
     </ul>
+    <WhatsAppBtn data={dataCompany.contact.wp} />
+  </nav>
+  <nav class="mobile">
+    <div class="mobile__header">
+      <a class="logo" href=`/`>
+        <Picture
+          src={dataCompany.imgNav.media.url}
+          alt={dataCompany.imgNav.alt.altText}
+          formats={["svg", "png"]}
+          fallbackFormat="svg"
+          inferSize={true}
+          quality={"high"}
+          densities={[1.5, 2]}
+        />
+      </a>
+      <OpenNav client:only="react" />
+    </div>
+  </nav>
+  <nav class="mobileActive">
+    <div class="mobile__header navItem">
+      <a class="logo" href=`/`>
+        <Picture
+          src={dataCompany.imgNav.media.url}
+          alt={dataCompany.imgNav.alt.altText}
+          formats={["svg", "png"]}
+          fallbackFormat="svg"
+          inferSize={true}
+          quality={"high"}
+          densities={[1.5, 2]}
+        />
+      </a>
+      <CloseNav client:load />
+    </div>
+    <ul class="navItem">
+      {
+        sortedNavItems.map(
+          (item) =>
+            item.boolean && (
+              <li>
+                <ScrollTo
+                  className="btn__nav"
+                  btnText={item.name}
+                  idToScroll={item.name}
+                  client:only="react"
+                />
+              </li>
+            )
+        )
+      }
+      <li>
+        <ScrollTo
+          className="btn__nav"
+          btnText="Contact"
+          classToScroll="footer"
+          client:only="react"
+        />
+      </li>
+    </ul>
+    <WhatsAppBtn data={dataCompany.contact.wp} />
   </nav>
 </header>

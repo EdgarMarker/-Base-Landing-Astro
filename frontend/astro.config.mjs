@@ -7,6 +7,15 @@ const { VITE_SANITY_PROJECT_ID, VITE_SANITY_DATASET } = import.meta.env;
 
 // https://astro.build/config
 export default defineConfig({
+  image: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "cdn.sanity.io",
+        port: "",
+      },
+    ],
+  },
   integrations: [
     sanity({
       projectId: VITE_SANITY_PROJECT_ID,

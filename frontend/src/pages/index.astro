@@ -13,6 +13,10 @@ import PortableTextCustom from "../components/ui/portableText/PortableTextCustom
 import TabsModels from "../components/ui/tabsModels/TabsModels.astro";
 import LightBox from "../components/ui/lightbox/LightBox";
 import Footer from "../components/footer/Footer.astro";
+import ScrollTo from "../components/ui/btn/ScrollTo";
+import CallModalBtn from "../components/ui/btn/OpenModalBtn";
+import FormModal from "../components/ui/modal/FormModal.astro";
+import PruebaGallery from "../components/ui/lightbox/PruebaGallery.astro";
 
 const dataPage: Page = await getDataPageMain();
 const dataCompany: Company = await getDataCompany();
@@ -31,8 +35,18 @@ const dataCompany: Company = await getDataCompany();
           <div class="column__2">
             <did class="col__left">
               <h1>{dataPage.hero.h1}</h1>
-              <PortableTextCustom data={dataPage.hero.portableText} />
-              <div class="btn">{dataPage.hero.btn}</div>
+              <PortableTextCustom
+                data={dataPage.hero.portableText}
+                client:only="react"
+              />
+              <ScrollTo
+                btnText={`${dataPage.hero.btn}`}
+                classToScroll="intro"
+                client:only="react"
+              />
+              <CallModalBtn openModalOf=".modal" client:only="react">
+                {dataPage.hero.btn}
+              </CallModalBtn>
             </did>
             <did class="col__right">
               <Picture
@@ -59,7 +73,13 @@ const dataCompany: Company = await getDataCompany();
                 data={dataPage.intro.portableText}
                 client:only="react"
               />
-              <div class="btn">{dataPage.intro.btn}</div>
+              <a
+                href={`${dataPage.intro.btnFile?.media.url}`}
+                target="_blank"
+                class="btn"
+              >
+                {dataPage.intro.btn}
+              </a>
             </did>
             <did class="col__right">
               <Picture
@@ -97,14 +117,20 @@ const dataCompany: Company = await getDataCompany();
     }
     {
       dataPage.location.setActive && (
-        <section id={dataPage.location.nameNav} class="location">
+        <section id={dataPage.location.nameNav} class="location fadeInOut">
           <div class="column__2">
             <div class="col__left">
               <PortableTextCustom
                 data={dataPage.location.portableText}
                 client:only="react"
               />
-              <div class="btn">{dataPage.location.btn}</div>
+              <a
+                href={`${dataPage.location.btnLink}`}
+                class="btn"
+                target="_blank"
+              >
+                {dataPage.location.btn}
+              </a>
             </div>
             <div class="col__right">
               <Picture
@@ -117,6 +143,18 @@ const dataCompany: Company = await getDataCompany();
                 quality={"high"}
                 densities={[1.5, 2]}
               />
+              <a href={`${dataPage.location.btnLink}`} target="_blank">
+                <Picture
+                  class="location__pin"
+                  src={dataPage.location.imgPin.media.url}
+                  alt={dataPage.location.imgPin.alt.altText}
+                  formats={["webp", "avif"]}
+                  fallbackFormat="jpeg"
+                  inferSize={true}
+                  quality={"high"}
+                  densities={[1.5, 2]}
+                />
+              </a>
             </div>
           </div>
         </section>
@@ -124,7 +162,7 @@ const dataCompany: Company = await getDataCompany();
     }
     {
       dataPage.amenities.setActive && (
-        <section id={dataPage.amenities.nameNav} class="amenities">
+        <section id={dataPage.amenities.nameNav} class="amenities fadeInOut">
           <div class="column__1">
             <PortableTextCustom
               data={dataPage.amenities.portableText}
@@ -232,7 +270,7 @@ const dataCompany: Company = await getDataCompany();
               client:only="react"
             />
             <LightBox
-              client:only="react"
+              client:load
               images={dataPage.gallery.list.map((img) => ({
                 src: img.media.url,
                 alt: img.alt.altText,
@@ -259,8 +297,9 @@ const dataCompany: Company = await getDataCompany();
         </section>
       )
     }
-    <Footer />
+    <Footer script={dataPage.form.script} />
   </ScrollSmootherProvider>
+  <FormModal script={dataPage.form.script} />
 </Layout>
 <script src="../scripts/mountSplide.js"></script>
 <script define:vars={{ colors: dataCompany.colors }}>

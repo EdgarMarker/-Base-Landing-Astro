@@ -1,4 +1,8 @@
 import { sanityClient } from "sanity:client";
+import imageUrlBuilder from "@sanity/image-url";
+
+const builder = imageUrlBuilder(sanityClient);
+export const urlFor = (source) => builder.image(source);
 
 const MODEL__PAGE = `
   setMainPage,
@@ -37,6 +41,10 @@ const MODEL__PAGE = `
     idNav,
     portableText,
     btn,
+    btnFile{
+    "media": asset->{
+      url
+    }},
     img{
       "media": asset->{
         url
@@ -66,7 +74,16 @@ const MODEL__PAGE = `
     idNav,
     portableText,
     btn,
+    btnLink,
     img{
+      "media": asset->{
+        url
+      },
+      "alt": asset->{
+        altText
+      }
+    },
+    imgPin{
       "media": asset->{
         url
       },
@@ -160,7 +177,15 @@ const MODEL__PAGE = `
       }
     }
   },
+  form{
+    script
+  }
 `;
+export const getAllDataPage = async () => {
+  const QUERY = `*[_type == 'pages']{${MODEL__PAGE}}`;
+  const data = await sanityClient.fetch(QUERY);
+  return data;
+};
 export const getDataPageMain = async () => {
   const QUERY = `*[_type == 'pages' && setMainPage == true]{${MODEL__PAGE}}`;
   const data = await sanityClient.fetch(QUERY);

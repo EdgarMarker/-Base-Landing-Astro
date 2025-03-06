@@ -1,7 +1,18 @@
+import { sanityClient } from "sanity:client";
+
 const MODEL__PAGE = `
+  imgNav{
+   "media": asset->{
+     url
+   },
+   "alt": asset->{
+     altText
+   }
+  },
   name,
   contact{
     portableText,
+    wp,
     tel,
     email,
     dir,
@@ -18,14 +29,6 @@ const MODEL__PAGE = `
         altText
       }
     },
-    imgNav{
-      "media": asset->{
-        url
-      },
-      "alt": asset->{
-        altText
-      }
-    }
   },
   privacy{
     portableText

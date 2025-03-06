@@ -16,6 +16,12 @@ export interface Section {
   h1?: string;
   portableText: BlockContent[];
   btn?: string;
+  btnLink?: string;
+  btnFile?: {
+    media: {
+      url: string;
+    };
+  };
   img: Img;
 }
 

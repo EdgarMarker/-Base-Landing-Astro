@@ -14,14 +14,28 @@ export interface Page {
   hero: Section;
   intro: Section;
   divisor1: Divisor;
-  location: Section;
+  location: Location;
   amenities: Amenities;
   divisor2: Divisor;
   models: Models;
   testy: Testy;
   gallery: Gallery;
+  form: Form;
 }
 
+interface Location {
+  id: number;
+  setActive: boolean;
+  setNav: boolean;
+  nameNav: string;
+  idNav: string;
+  h1?: string;
+  portableText: BlockContent[];
+  btn?: string;
+  btnLink?: string;
+  img: Img;
+  imgPin: Img;
+}
 interface Amenities {
   id: number;
   setActive: boolean;
@@ -74,4 +88,7 @@ interface Gallery {
   list: Img[];
 }
 
+interface Form {
+  script: string;
+}
 //https://adcorp.mx/altare/

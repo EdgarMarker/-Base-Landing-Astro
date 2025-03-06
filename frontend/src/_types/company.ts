@@ -1,6 +1,7 @@
 import type { BlockContent, Img, Slug } from "./_globals";
 
 export interface Company {
+  imgNav: Img;
   name: string;
   contact: Contact;
   privacy: Privacy;
@@ -8,6 +9,7 @@ export interface Company {
 }
 interface Contact {
   portableText: BlockContent[];
+  wp: string;
   tel: string;
   email: string;
   dir: string;
@@ -17,7 +19,6 @@ interface Contact {
     url: string;
   }[];
   img: Img;
-  imgNav: Img;
 }
 interface Privacy {
   namePrivacy: string;

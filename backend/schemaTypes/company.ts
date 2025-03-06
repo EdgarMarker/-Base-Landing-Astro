@@ -20,13 +20,18 @@ export default defineType({
   ],
   fields: [
     defineField({
+      name: 'imgNav',
+      title: 'Logo navegación',
+      type: 'image',
+    }),
+    defineField({
       name: 'name',
       title: 'Nombre de la empresa',
       type: 'string',
     }),
     defineField({
       name: 'contact',
-      title: 'Contacto',
+      title: 'Contacto y pie de pagina',
       group: 'contact',
       type: 'object',
       fields: [
@@ -35,6 +40,12 @@ export default defineType({
           title: 'Contenido para pie de pagina',
           type: 'array',
           of: [{type: 'block'}],
+        },
+        {
+          name: 'wp',
+          title: 'WhatsApp',
+          description: 'No es necesario poner el +52',
+          type: 'string',
         },
         {
           name: 'tel',
@@ -73,11 +84,6 @@ export default defineType({
         {
           name: 'img',
           title: 'Logo pie de página',
-          type: 'image',
-        },
-        {
-          name: 'imgNav',
-          title: 'Logo navegación',
           type: 'image',
         },
       ],

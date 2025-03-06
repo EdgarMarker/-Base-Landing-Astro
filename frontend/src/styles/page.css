@@ -10,65 +10,79 @@
     padding: calc(5% + 60px) 5% 5% 5%;
     background-color: var(--color-primary);
     height: auto;
-    .column__2{
-        .col__left{
+
+    .column__2 {
+        .col__left {
             width: 40%;
             padding-right: 5%;
             justify-content: center;
-            h1{
+
+            h1 {
                 color: var(--color-accent);
             }
-            h2{
+
+            h2 {
                 font-size: var(--size-2xl);
                 color: var(--color-accent);
             }
+
             p {
                 color: var(--color-white);
             }
         }
-        .col__right{
+
+        .col__right {
             width: 60%;
             padding-left: 5%;
         }
     }
 
-    
+
 }
 
 .intro {
     padding: 5%;
-    .column__2{
+
+    .column__2 {
         width: 100%;
-        .col__left{
+
+        .col__left {
             width: 40%;
             padding-right: 5%;
-            h3{
+
+            h3 {
                 color: var(--color-secondary);
             }
+
             h2 {
                 color: var(--color-primary);
             }
         }
-        .col__right{
+
+        .col__right {
             width: 60%;
             padding-left: 5%;
         }
     }
-    
+
 }
 
 .location {
     padding: 5%;
-    .column__2{
-        .col__left{
+
+    .column__2 {
+        .col__left {
             width: 40%;
             padding-right: 5%;
-            h3{
+
+            h3 {
                 color: var(--color-secondary);
             }
-            ul{
+
+            ul {
                 margin-bottom: 20px;
-                li{
+
+                li {
                     list-style: none;
                     display: flex;
                     flex-direction: row;
@@ -77,7 +91,8 @@
                     gap: 8px;
                     line-height: 1.6;
                     margin-bottom: 0px;
-                    &::before{
+
+                    &::before {
                         content: "";
                         display: block;
                         width: 10px;
@@ -89,9 +104,24 @@
                 }
             }
         }
-        .col__right{
+
+        .col__right {
+            position: relative;
             width: 60%;
             padding-left: 0%;
+
+            a {
+                margin: 0;
+            }
+
+            .location__pin {
+                position: absolute;
+                width: 50px;
+                aspect-ratio: 1/1;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
         }
     }
 }
@@ -105,6 +135,7 @@
         h2 {
             color: var(--color-white);
         }
+
         h3 {
             color: var(--color-secondary-light);
         }
@@ -112,6 +143,7 @@
         ul {
             width: 100%;
             margin-top: 5%;
+
             li {
                 display: flex;
                 flex-direction: column;
@@ -121,13 +153,15 @@
                     display: flex;
                     justify-content: center;
                     margin-bottom: 30px;
+
                     img {
                         width: 80px;
                         object-fit: contain;
                         aspect-ratio: 1/1;
                     }
                 }
-                p{
+
+                p {
                     color: var(--color-white);
                 }
             }
@@ -137,7 +171,8 @@
 
 .models {
     padding: 5%;
-    .column__1{
+
+    .column__1 {
         .splide__pagination__tabs {
             display: flex;
             width: 100%;
@@ -145,38 +180,45 @@
             align-items: center;
             gap: 1em;
             padding: 5%;
+
             li {
                 margin: 0;
             }
         }
+
         .splide-models {
             width: 100%;
+
             .splide__track {
                 .splide__list {
                     .column__2 {
                         .col__left {
                             padding-right: 5%;
                             justify-content: center;
+
                             h3 {
                                 color: var(--color-accent);
                                 font-weight: bold;
                             }
-                            h2{
+
+                            h2 {
                                 font-size: var(--size-lg);
                             }
-                            p{
+
+                            p {
                                 margin-bottom: 0px;
                             }
-    
+
                             ul {
                                 column-count: 2;
                                 width: 100%;
                                 list-style: none;
-                                li{
+
+                                li {
                                     margin-bottom: 0px;
                                 }
                             }
-    
+
                         }
                     }
                 }
@@ -187,13 +229,19 @@
 
 .testy {
     padding: 5%;
+
     .column__1 {
-        h2, p, a{
+
+        h2,
+        p,
+        a {
             color: var(--color-primary);
         }
-        h3{
+
+        h3 {
             color: var(--color-secondary);
         }
+
         .splide {
             width: 100%;
         }
@@ -230,6 +278,14 @@
 
 }
 
+#footer {
+    height: fit-content;
+    #form {
+        width: 100%;
+        min-height: 80vh;
+        overflow-y: hidden;
+    }
+}
 
 
 
@@ -246,95 +302,110 @@
 /*  Tableta  */
 @media only screen and (max-width: 1024px) {
 
-    .hero{
-        .column__2{
+    .hero {
+        .column__2 {
             flex-direction: column-reverse;
             gap: 50px;
-            .col__left{
+
+            .col__left {
                 width: 100%;
                 padding-right: 0;
             }
-            .col__right{
+
+            .col__right {
                 width: 100%;
                 padding-left: 0;
             }
         }
     }
 
-    .intro{
+    .intro {
         padding: 8% 5%;
-        .column__2{
+
+        .column__2 {
             flex-direction: column-reverse;
             gap: 50px;
-            .col__left{
+
+            .col__left {
                 width: 100%;
                 padding-right: 0;
             }
-            .col__right{
+
+            .col__right {
                 width: 100%;
                 padding-left: 0;
             }
         }
     }
 
-    .location{
+    .location {
         padding: 8% 5%;
-        .column__2{
+
+        .column__2 {
             flex-direction: column-reverse;
             gap: 50px;
-            .col__left{
+
+            .col__left {
                 width: 100%;
                 padding-right: 0;
-                ul{
-                    li{
-                        &::before{
+
+                ul {
+                    li {
+                        &::before {
                             width: 8px;
                             height: 8px;
                         }
                     }
                 }
             }
-            .col__right{
+
+            .col__right {
                 width: 100%;
                 padding-left: 0;
             }
         }
     }
 
-    .amenities{
+    .amenities {
         padding: 8% 5%;
     }
 
-    .models{
+    .models {
         padding: 8% 5%;
-        .column__1{
-            .splide__pagination__tabs{
+
+        .column__1 {
+            .splide__pagination__tabs {
                 padding: 0 5% 5%;
             }
+
             .splide-models {
                 width: 100%;
+
                 .splide__track {
                     .splide__list {
                         .column__2 {
                             margin: 0;
                             gap: 30px;
                             flex-direction: column;
+
                             .col__left {
                                 padding-right: 0%;
                                 width: 100%;
-                                
-        
+
+
                                 ul {
                                     column-count: 1;
                                     width: 100%;
                                     list-style: none;
-                                    li{
+
+                                    li {
                                         margin-bottom: 0px;
                                     }
                                 }
-        
+
                             }
-                            .col__right{
+
+                            .col__right {
                                 padding-left: 0%;
                                 width: 100%;
                             }
@@ -364,24 +435,28 @@
 /*  Móvil  */
 @media only screen and (max-width: 768px) {
 
-    .location{
+    .location {
         padding: 12% 5%;
-        .column__2{
+
+        .column__2 {
             flex-direction: column-reverse;
             gap: 30px;
-            .col__left{
+
+            .col__left {
                 width: 100%;
                 padding-right: 0;
-                ul{
-                    li{
-                        &::before{
+
+                ul {
+                    li {
+                        &::before {
                             width: 6px;
                             height: 6px;
                         }
                     }
                 }
             }
-            .col__right{
+
+            .col__right {
                 width: 100%;
                 padding-left: 0;
             }

@@ -45,6 +45,10 @@ export default defineType({
       name: 'gallery',
       title: 'Galería',
     },
+    {
+      name: 'form',
+      title: 'Formulario',
+    },
   ],
   fields: [
     defineField({
@@ -81,12 +85,12 @@ export default defineType({
         {
           name: 'dsc',
           title: 'Descripción',
-          type: 'string',
+          type: 'text',
         },
         {
           name: 'keywords',
           title: 'Palabras Claves',
-          type: 'string',
+          type: 'text',
         },
       ],
     }),
@@ -181,6 +185,11 @@ export default defineType({
           type: 'string',
         },
         {
+          name: 'btnFile',
+          title: 'Archivo para el botón',
+          type: 'file',
+        },
+        {
           name: 'img',
           title: 'Imagen',
           type: 'image',
@@ -251,8 +260,18 @@ export default defineType({
           type: 'string',
         },
         {
+          name: 'btnLink',
+          title: 'Link de google',
+          type: 'string',
+        },
+        {
           name: 'img',
           title: 'Imagen',
+          type: 'image',
+        },
+        {
+          name: 'imgPin',
+          title: 'Imagen del pin',
           type: 'image',
         },
       ],
@@ -482,6 +501,19 @@ export default defineType({
           options: {
             layout: 'grid',
           },
+        },
+      ],
+    }),
+    defineField({
+      name: 'form',
+      title: 'Formulario',
+      group: 'form',
+      type: 'object',
+      fields: [
+        {
+          name: 'script',
+          title: 'Script del formulario',
+          type: 'text',
         },
       ],
     }),
